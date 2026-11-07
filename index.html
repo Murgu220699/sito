@@ -79,7 +79,7 @@
   font-display: swap;
   font-weight: 400;
   src: url(fonts/noto-sans-math-subset.woff2) format("woff2");
-  unicode-range: U+0030,U+0031,U+0032,U+0033,U+0034,U+0035,U+0036,U+0037,U+0038,U+0039,U+03B4,U+1D53D;
+  unicode-range: U+0030,U+0031,U+0032,U+0033,U+0034,U+0035,U+0036,U+0037,U+0038,U+0039,U+03B4,U+2265,U+1D53D;
 }
 
 :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
@@ -694,24 +694,51 @@ h2 em { color: var(--accent); }
 
     <div class="paper-controls">
       <div class="paper-tabs" role="group" aria-label="Filter by publication status">
-        <button type="button" data-status-filter="all" aria-pressed="true">All work <span class="count">12</span></button>
+        <button type="button" data-status-filter="all" aria-pressed="true">All work <span class="count">15</span></button>
         <button type="button" data-status-filter="publication" aria-pressed="false">Publications <span class="count">5</span></button>
-        <button type="button" data-status-filter="preprint" aria-pressed="false">Preprints <span class="count">7</span></button>
+        <button type="button" data-status-filter="preprint" aria-pressed="false">Preprints <span class="count">10</span></button>
       </div>
       <label class="search-box"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M12 12l5 5"/></svg><span class="sr-only">Search papers by title, author or year</span><input type="search" id="paper-search" placeholder="Find a paper…" autocomplete="off"></label>
     </div>
     <div class="topic-row">
       <span class="eyebrow">Topic</span>
       <div class="topic-chips" role="group" aria-label="Filter by topic">
-        <button type="button" data-topic-filter="geometry" aria-pressed="false">Finite geometry <span class="count">9</span></button>
-        <button type="button" data-topic-filter="algebra" aria-pressed="false">Applied algebra <span class="count">4</span></button>
-        <button type="button" data-topic-filter="codes" aria-pressed="false">Coding theory <span class="count">6</span></button>
+        <button type="button" data-topic-filter="geometry" aria-pressed="false">Finite geometry <span class="count">12</span></button>
+        <button type="button" data-topic-filter="algebra" aria-pressed="false">Applied algebra <span class="count">5</span></button>
+        <button type="button" data-topic-filter="codes" aria-pressed="false">Coding theory <span class="count">8</span></button>
       </div>
     </div>
 
     <!-- To add a paper, copy an <article class="paper-row"> block and edit it.
          data-status: publication | preprint      data-topics: geometry algebra codes (one or more) -->
     <div class="paper-list" id="paper-list">
+      <article class="paper-row" data-status="preprint" data-topics="geometry codes" data-cite="A. Giannoni, A. Neri. A probabilistic construction of maximum h-scattered subspaces. arXiv:2610.32737 (2026).">
+        <div class="paper-meta"><span class="paper-year">2026</span><span class="paper-status">Preprint</span></div>
+        <div class="paper-content">
+          <h3><a href="https://arxiv.org/abs/2610.32737" target="_blank" rel="noopener">A probabilistic construction of maximum <i>h</i>-scattered subspaces</a></h3>
+          <p class="paper-authors"><strong>A. Giannoni</strong>, A. Neri</p>
+          <p class="paper-venue"><i>arXiv:2610.32737</i><span>October 2026</span><button class="cite-btn" type="button">Cite</button></p>
+        </div>
+        <a class="paper-arrow" href="https://arxiv.org/abs/2610.32737" target="_blank" rel="noopener" aria-label="Open on arXiv (new tab)"><svg class="arrow" aria-hidden="true"><use href="#i-ne"></use></svg></a>
+      </article>
+      <article class="paper-row" data-status="preprint" data-topics="geometry algebra" data-cite="D. Bartoli, A. Giannoni. The weak cylinder conjecture for polynomial graphs of bounded degree. arXiv:2610.16803 (2026).">
+        <div class="paper-meta"><span class="paper-year">2026</span><span class="paper-status">Preprint</span></div>
+        <div class="paper-content">
+          <h3><a href="https://arxiv.org/abs/2610.16803" target="_blank" rel="noopener">The weak cylinder conjecture for polynomial graphs of bounded degree</a></h3>
+          <p class="paper-authors">D. Bartoli, <strong>A. Giannoni</strong></p>
+          <p class="paper-venue"><i>arXiv:2610.16803</i><span>October 2026</span><button class="cite-btn" type="button">Cite</button></p>
+        </div>
+        <a class="paper-arrow" href="https://arxiv.org/abs/2610.16803" target="_blank" rel="noopener" aria-label="Open on arXiv (new tab)"><svg class="arrow" aria-hidden="true"><use href="#i-ne"></use></svg></a>
+      </article>
+      <article class="paper-row" data-status="preprint" data-topics="geometry codes" data-cite="D. Bartoli, F. Ghiandoni, A. Giannoni, G. Marino, A. Neri. Maximum 2-scattered subspaces of V(r,q^6) for every r ≥ 3. arXiv:2610.08237 (2026).">
+        <div class="paper-meta"><span class="paper-year">2026</span><span class="paper-status">Preprint</span></div>
+        <div class="paper-content">
+          <h3><a href="https://arxiv.org/abs/2610.08237" target="_blank" rel="noopener">Maximum 2-scattered subspaces of <i>V</i>(<i>r</i>, <i>q</i><sup>6</sup>) for every <i>r</i>&nbsp;≥&nbsp;3</a></h3>
+          <p class="paper-authors">D. Bartoli, F. Ghiandoni, <strong>A. Giannoni</strong>, G. Marino, A. Neri</p>
+          <p class="paper-venue"><i>arXiv:2610.08237</i><span>October 2026</span><button class="cite-btn" type="button">Cite</button></p>
+        </div>
+        <a class="paper-arrow" href="https://arxiv.org/abs/2610.08237" target="_blank" rel="noopener" aria-label="Open on arXiv (new tab)"><svg class="arrow" aria-hidden="true"><use href="#i-ne"></use></svg></a>
+      </article>
       <article class="paper-row" data-status="preprint" data-topics="algebra" data-cite="A. Giannoni. F-sets of arbitrary finite width. arXiv:2609.05305 (2026).">
         <div class="paper-meta"><span class="paper-year">2026</span><span class="paper-status">Preprint</span></div>
         <div class="paper-content">
@@ -827,8 +854,8 @@ h2 em { color: var(--accent); }
       </div>
     </div>
     <div class="paper-list-footer">
-      <span class="eyebrow" id="paper-range" aria-live="polite">Showing 6 of 12 papers</span>
-      <button class="button outline" type="button" id="show-all">View all 12 papers <svg class="arrow" aria-hidden="true"><use href="#i-down"></use></svg></button>
+      <span class="eyebrow" id="paper-range" aria-live="polite">Showing 6 of 15 papers</span>
+      <button class="button outline" type="button" id="show-all">View all 15 papers <svg class="arrow" aria-hidden="true"><use href="#i-down"></use></svg></button>
     </div>
 
     <div class="in-preparation">
@@ -856,6 +883,7 @@ h2 em { color: var(--accent); }
 
           <div class="news">
             <p class="eyebrow list-label">Recently</p>
+            <div class="news-row"><time datetime="2026-10">Oct 2026</time><p>Three new preprints: <a href="https://arxiv.org/abs/2610.08237" target="_blank" rel="noopener">maximum 2-scattered subspaces of <i>V</i>(<i>r</i>, <i>q</i><sup>6</sup>)</a>, with D. Bartoli, F. Ghiandoni, G. Marino and A. Neri; <a href="https://arxiv.org/abs/2610.16803" target="_blank" rel="noopener">the weak cylinder conjecture for polynomial graphs</a>, with D. Bartoli; and <a href="https://arxiv.org/abs/2610.32737" target="_blank" rel="noopener">a probabilistic construction of maximum <i>h</i>-scattered subspaces</a>, with A. Neri.</p><span></span></div>
             <div class="news-row"><time datetime="2026-09">Sep 2026</time><p>Two new preprints: <a href="https://arxiv.org/abs/2609.01484" target="_blank" rel="noopener">codes from Drinfeld modules</a>, with G. Micheli and M. Papikian, and <a href="https://arxiv.org/abs/2609.05305" target="_blank" rel="noopener">F-sets of arbitrary finite width</a>.</p><span></span></div>
             <div class="news-row"><time datetime="2026-07">Jul 2026</time><p>New preprint on <a href="https://arxiv.org/abs/2607.23156" target="_blank" rel="noopener">the extremal gap for scattered <i>q</i>-systems</a>.</p><span></span></div>
             <div class="news-row"><time datetime="2026-05">May 2026</time><p>With L. Bastioni and J. Lobillo-Olmedo: <a href="https://arxiv.org/abs/2605.05455" target="_blank" rel="noopener">Tic-Tac-Toe on finite affine spaces</a>. You can play it on <a href="https://www.affinetictactoe.com" target="_blank" rel="noopener">affinetictactoe.com</a>.</p><span></span></div>
