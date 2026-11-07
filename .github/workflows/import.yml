@@ -1,0 +1,51 @@
+name: Import site files from Netlify
+on:
+  push:
+    paths:
+      - .github/workflows/import.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download the site files from Netlify
+        run: |
+          set -euo pipefail
+          base="https://unique-kelpie-3cab2a.netlify.app"
+          files="index.html favicon.svg apple-touch-icon.png og-image.png robots.txt sitemap.xml images/alessandro.webp fonts/dm-sans-latin-opsz-italic.woff2 fonts/dm-sans-latin-opsz-normal.woff2 fonts/ibm-plex-mono-latin-400-normal.woff2 fonts/ibm-plex-mono-latin-500-normal.woff2 fonts/instrument-serif-latin-400-italic.woff2 fonts/instrument-serif-latin-400-normal.woff2 fonts/noto-sans-math-subset.woff2"
+          for f in $files; do
+            mkdir -p "$(dirname "$f")"
+            curl -fsSL --retry 3 -H "Cache-Control: no-cache" "$base/$f" -o "$f"
+          done
+          # Netlify appends its badge script after </html>: remove it
+          sed -i '/\/\.netlify\/scripts\/hud/d' index.html
+          printf 'www.alessandrogiannoni.com\n' > CNAME
+          printf '\n' > .nojekyll
+      - name: Check that every file is identical to the original build
+        run: |
+          sha256sum -c - <<'EOF'
+          86f0c5e137303a16c898f4c231c34b0bfc4ab8b8327c1cfc25c692ecbf6c1af7  apple-touch-icon.png
+          721a5d1821d49b70d5ce0edfc7970cb265f0d0c3216e6ea790559026859621e8  favicon.svg
+          d5c53a50536536971ea27318a590dbf723a190dd2f608e7a92929a021cc0ebaa  fonts/dm-sans-latin-opsz-italic.woff2
+          ca72d2bcea8f4daa783dbdfa2d9b46068c3ce38168e05918fb867aa453b4f890  fonts/dm-sans-latin-opsz-normal.woff2
+          08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7  fonts/ibm-plex-mono-latin-400-normal.woff2
+          01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22  fonts/ibm-plex-mono-latin-500-normal.woff2
+          5a51946dfffa82972bc98745359c46761515641fda557c25116459a9f83da4a7  fonts/instrument-serif-latin-400-italic.woff2
+          5eb09b5ac0e28b67c2f041c8ba6d244604ca0c0980d65912ab2d47fed84ddc31  fonts/instrument-serif-latin-400-normal.woff2
+          c6c6127544d761ef114ddb9b8ddde3457febf38fffad00788dd8885c6d4dfbb6  fonts/noto-sans-math-subset.woff2
+          87228032ab3969a350c3e882e2a1a354bc9e84c13aacc8b9ea78da4a9b109333  images/alessandro.webp
+          1b1d7f6cf8f3d68101d982c308d6b267038d1c555cde621dfedc3660bc6e8520  index.html
+          00dba324077b3decd045556fc0d00e5939158de0518eda9f132aa36b82f5d2d0  og-image.png
+          b25d245ea004355cd37fe5135dc1bfcd20a2bfda941b1ebc14386e317ff9884b  robots.txt
+          ce3732e71256329f849d0ae5ef498bc85be77835f4e6f26f0568aea2729f1720  sitemap.xml
+          EOF
+      - name: Commit the files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add site files"
+          git push
