@@ -24,7 +24,8 @@ jobs:
           echo "index.html as served: $(wc -c < index.html) bytes"
           grep -n -i -E 'netlify|<!--' index.html | cut -c1-500 || true
           echo "--- last 400 bytes"; tail -c 400 index.html; echo
-          # Netlify appends its badge script after </html>: remove it
+          # Netlify injects a promotional comment in <head> and its badge script after </html>: remove both
+          perl -0pi -e 's/<!-- This site is hosted on Netlify\..*?-->\n//s' index.html
           sed -i '/\/\.netlify\/scripts\/hud/d' index.html
           echo "index.html after cleanup: $(wc -c < index.html) bytes (original: 75750)"
           printf 'www.alessandrogiannoni.com\n' > CNAME
