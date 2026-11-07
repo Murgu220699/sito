@@ -1,0 +1,34 @@
+name: Crop the portrait
+on:
+  push:
+    paths:
+      - .github/workflows/crop.yml
+permissions:
+  contents: write
+jobs:
+  crop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Crop images/alessandro.webp to a half-length 400x500 portrait
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from PIL import Image
+          im = Image.open('images/alessandro.webp')
+          assert im.size == (746, 1024), im.size
+          im.convert('RGB').crop((102, 122, 502, 622)).save('images/alessandro.webp', 'WEBP', quality=90, method=6)
+          print('new size:', Image.open('images/alessandro.webp').size)
+          PY
+          ls -l images/alessandro.webp
+      - name: Commit the cropped photo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/alessandro.webp
+          git commit -m "Crop the portrait to half length"
+          git push
