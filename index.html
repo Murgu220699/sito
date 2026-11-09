@@ -558,12 +558,34 @@ h2 em { color: var(--accent); }
   .site-footer { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; gap: 6px 16px; }
   .footer-note { grid-row: 2; grid-column: 2 / -1; margin: 0; }
   .back-top { grid-column: 3; grid-row: 1; margin: 0; }
+  .point text { font-size: 15px; }
 }
 @media (max-width: 420px) {
   .hero-footer .scroll-link span:first-child { display: none; }
+  .site-footer { grid-template-columns: 44px minmax(0, 1fr); }
+  .back-top { grid-column: 2; grid-row: 3; justify-self: start; }
   .paper-tabs button { padding: 8px 7px; font-size: 13px; }
   .timeline-row, .news-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .timeline-current { display: none; }
+}
+@media (max-width: 360px) {
+  .paper-tabs button { padding: 8px 5px; font-size: 12.5px; }
+  .paper-tabs button .count { margin-left: 4px; }
+  .contact-details a { font-size: 15px; }
+  .contact-details a .arrow { margin-left: 6px; font-size: 16px; }
+}
+/* touch screens: hit areas of about 44px around small links, without changing the look */
+@media (pointer: coarse) {
+  .scroll-link, .area-link, .back-top, .cite-btn, .paper-venue a { position: relative; }
+  .area-link::before, .back-top::before, .cite-btn::before, .paper-venue a::before { content: ""; position: absolute; inset: -11px -6px; }
+  .scroll-link::before { content: ""; position: absolute; inset: -12px; }
+  .search-box input { min-height: 40px; }
+  .contact-links { row-gap: 2px; }
+  .contact-links a { padding: 9px 0; }
+  .contact-details a { padding: 3px 0; }
+}
+@media (pointer: coarse) and (min-width: 761px) {
+  .site-nav a::before { content: ""; position: absolute; inset: -11px -8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -656,13 +678,13 @@ h2 em { color: var(--accent); }
                 <circle data-line="6" class="is-on" cx="250" cy="256" r="104"/>
               </g>
               <g class="fano-points">
-                <g class="point" data-p="100" tabindex="0" role="button" aria-label="Point 100: show its three lines" transform="translate(250 48)"><circle class="hit" r="20"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text y="-18" text-anchor="middle">100</text></g>
-                <g class="point" data-p="010" tabindex="0" role="button" aria-label="Point 010: show its three lines" transform="translate(69.87 360)"><circle class="hit" r="20"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="-8" y="30" text-anchor="middle">010</text></g>
-                <g class="point" data-p="001" tabindex="0" role="button" aria-label="Point 001: show its three lines" transform="translate(430.13 360)"><circle class="hit" r="20"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="8" y="30" text-anchor="middle">001</text></g>
-                <g class="point is-on" data-p="110" tabindex="0" role="button" aria-label="Point 110: show its three lines" transform="translate(159.93 204)"><circle class="hit" r="20"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="-18" y="4" text-anchor="end">110</text></g>
-                <g class="point is-on" data-p="101" tabindex="0" role="button" aria-label="Point 101: show its three lines" transform="translate(340.07 204)"><circle class="hit" r="20"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="18" y="4" text-anchor="start">101</text></g>
-                <g class="point is-on" data-p="011" tabindex="0" role="button" aria-label="Point 011: show its three lines" transform="translate(250 360)"><circle class="hit" r="20"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text y="30" text-anchor="middle">011</text></g>
-                <g class="point" data-p="111" tabindex="0" role="button" aria-label="Point 111: show its three lines" transform="translate(250 256)"><circle class="hit" r="20"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="16" y="4" text-anchor="start">111</text></g>
+                <g class="point" data-p="100" tabindex="0" role="button" aria-label="Point 100: show its three lines" transform="translate(250 48)"><circle class="hit" r="28"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text y="-18" text-anchor="middle">100</text></g>
+                <g class="point" data-p="010" tabindex="0" role="button" aria-label="Point 010: show its three lines" transform="translate(69.87 360)"><circle class="hit" r="28"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="-8" y="30" text-anchor="middle">010</text></g>
+                <g class="point" data-p="001" tabindex="0" role="button" aria-label="Point 001: show its three lines" transform="translate(430.13 360)"><circle class="hit" r="28"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="8" y="30" text-anchor="middle">001</text></g>
+                <g class="point is-on" data-p="110" tabindex="0" role="button" aria-label="Point 110: show its three lines" transform="translate(159.93 204)"><circle class="hit" r="28"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="-18" y="4" text-anchor="end">110</text></g>
+                <g class="point is-on" data-p="101" tabindex="0" role="button" aria-label="Point 101: show its three lines" transform="translate(340.07 204)"><circle class="hit" r="28"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="18" y="4" text-anchor="start">101</text></g>
+                <g class="point is-on" data-p="011" tabindex="0" role="button" aria-label="Point 011: show its three lines" transform="translate(250 360)"><circle class="hit" r="28"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text y="30" text-anchor="middle">011</text></g>
+                <g class="point" data-p="111" tabindex="0" role="button" aria-label="Point 111: show its three lines" transform="translate(250 256)"><circle class="hit" r="28"/><circle class="halo" r="11"/><circle class="dot" r="5.5"/><text x="16" y="4" text-anchor="start">111</text></g>
               </g>
             </svg>
             <figcaption><div><span class="fig-number">FIG. 01</span><span id="fano-caption">The Fano plane <i>PG</i>(2, 2)</span></div><button class="figure-step" id="explore-line" type="button">Explore a line<svg class="arrow" aria-hidden="true"><use href="#i-ne"></use></svg></button></figcaption>
@@ -923,7 +945,7 @@ h2 em { color: var(--accent); }
       <div class="contact-grid">
         <div>
           <h2 id="contact-title">Good ideas begin<br>with a <em>conversation.</em></h2>
-          <p>For research, collaborations, or a mathematical question.<br>I'd be happy to hear from you.</p>
+          <p>For research, collaborations, or a mathematical question.<br> I'd be happy to hear from you.</p>
         </div>
         <a class="contact-arrow" href="#contact" data-mail="alessandro.giannoni|unina.it" aria-label="Email Alessandro Giannoni"><svg class="arrow" aria-hidden="true"><use href="#i-ne"></use></svg></a>
       </div>
