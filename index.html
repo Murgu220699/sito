@@ -708,24 +708,33 @@ h2 em { color: var(--accent); }
 
     <div class="paper-controls">
       <div class="paper-tabs" role="group" aria-label="Filter by publication status">
-        <button type="button" data-status-filter="all" aria-pressed="true">All work <span class="count">15</span></button>
+        <button type="button" data-status-filter="all" aria-pressed="true">All work <span class="count">16</span></button>
         <button type="button" data-status-filter="publication" aria-pressed="false">Publications <span class="count">5</span></button>
-        <button type="button" data-status-filter="preprint" aria-pressed="false">Preprints <span class="count">10</span></button>
+        <button type="button" data-status-filter="preprint" aria-pressed="false">Preprints <span class="count">11</span></button>
       </div>
       <label class="search-box"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M12 12l5 5"/></svg><span class="sr-only">Search papers by title, author or year</span><input type="search" id="paper-search" placeholder="Find a paper…" autocomplete="off"></label>
     </div>
     <div class="topic-row">
       <span class="eyebrow">Topic</span>
       <div class="topic-chips" role="group" aria-label="Filter by topic">
-        <button type="button" data-topic-filter="geometry" aria-pressed="false">Finite geometry <span class="count">12</span></button>
+        <button type="button" data-topic-filter="geometry" aria-pressed="false">Finite geometry <span class="count">13</span></button>
         <button type="button" data-topic-filter="algebra" aria-pressed="false">Applied algebra <span class="count">5</span></button>
-        <button type="button" data-topic-filter="codes" aria-pressed="false">Coding theory <span class="count">8</span></button>
+        <button type="button" data-topic-filter="codes" aria-pressed="false">Coding theory <span class="count">9</span></button>
       </div>
     </div>
 
     <!-- To add a paper, copy an <article class="paper-row"> block and edit it.
          data-status: publication | preprint      data-topics: geometry algebra codes (one or more) -->
     <div class="paper-list" id="paper-list">
+      <article class="paper-row" data-status="preprint" data-topics="geometry codes" data-cite="A. Giannoni. Evasive subspaces, minimal rank-metric codes and subspace designs via auxiliary fields. arXiv:2611.08627 (2026).">
+        <div class="paper-meta"><span class="paper-year">2026</span><span class="paper-status">Preprint</span></div>
+        <div class="paper-content">
+          <h3><a href="https://arxiv.org/abs/2611.08627" target="_blank" rel="noopener">Evasive subspaces, minimal rank-metric codes and subspace designs via auxiliary fields</a></h3>
+          <p class="paper-authors"><strong>A. Giannoni</strong></p>
+          <p class="paper-venue"><i>arXiv:2611.08627</i><span>November 2026</span><button class="cite-btn" type="button">Cite</button></p>
+        </div>
+        <a class="paper-arrow" href="https://arxiv.org/abs/2611.08627" target="_blank" rel="noopener" aria-label="Open on arXiv (new tab)"><svg class="arrow" aria-hidden="true"><use href="#i-ne"></use></svg></a>
+      </article>
       <article class="paper-row" data-status="preprint" data-topics="geometry codes" data-cite="A. Giannoni, A. Neri. A probabilistic construction of maximum h-scattered subspaces. arXiv:2610.32737 (2026).">
         <div class="paper-meta"><span class="paper-year">2026</span><span class="paper-status">Preprint</span></div>
         <div class="paper-content">
@@ -868,8 +877,8 @@ h2 em { color: var(--accent); }
       </div>
     </div>
     <div class="paper-list-footer">
-      <span class="eyebrow" id="paper-range" aria-live="polite">Showing 6 of 15 papers</span>
-      <button class="button outline" type="button" id="show-all">View all 15 papers <svg class="arrow" aria-hidden="true"><use href="#i-down"></use></svg></button>
+      <span class="eyebrow" id="paper-range" aria-live="polite">Showing 6 of 16 papers</span>
+      <button class="button outline" type="button" id="show-all">View all 16 papers <svg class="arrow" aria-hidden="true"><use href="#i-down"></use></svg></button>
     </div>
 
     <div class="in-preparation">
@@ -888,12 +897,12 @@ h2 em { color: var(--accent); }
       <div class="about-grid">
         <div class="news">
           <p class="eyebrow list-label">Recently</p>
+          <div class="news-row"><time datetime="2026-11">Nov 2026</time><p>New preprint: <a href="https://arxiv.org/abs/2611.08627" target="_blank" rel="noopener">evasive subspaces, minimal rank-metric codes and subspace designs via auxiliary fields</a>.</p><span></span></div>
           <div class="news-row"><time datetime="2026-10">Oct 2026</time><p>Three new preprints: <a href="https://arxiv.org/abs/2610.08237" target="_blank" rel="noopener">maximum 2-scattered subspaces of <i>V</i>(<i>r</i>, <i>q</i><sup>6</sup>)</a>, with D. Bartoli, F. Ghiandoni, G. Marino and A. Neri; <a href="https://arxiv.org/abs/2610.16803" target="_blank" rel="noopener">the weak cylinder conjecture for polynomial graphs</a>, with D. Bartoli; and <a href="https://arxiv.org/abs/2610.32737" target="_blank" rel="noopener">a probabilistic construction of maximum <i>h</i>-scattered subspaces</a>, with A. Neri.</p><span></span></div>
           <div class="news-row"><time datetime="2026-09">Sep 2026</time><p>Two new preprints: <a href="https://arxiv.org/abs/2609.01484" target="_blank" rel="noopener">codes from Drinfeld modules</a>, with G. Micheli and M. Papikian, and <a href="https://arxiv.org/abs/2609.05305" target="_blank" rel="noopener">F-sets of arbitrary finite width</a>.</p><span></span></div>
           <div class="news-row"><time datetime="2026-07">Jul 2026</time><p>New preprint on <a href="https://arxiv.org/abs/2607.23156" target="_blank" rel="noopener">the extremal gap for scattered <i>q</i>-systems</a>.</p><span></span></div>
           <div class="news-row"><time datetime="2026-05">May 2026</time><p>With L. Bastioni and J. Lobillo-Olmedo: <a href="https://arxiv.org/abs/2605.05455" target="_blank" rel="noopener">Tic-Tac-Toe on finite affine spaces</a>. You can play it on <a href="https://www.affinetictactoe.com" target="_blank" rel="noopener">affinetictactoe.com</a>.</p><span></span></div>
           <div class="news-row"><time datetime="2026-03">Mar 2026</time><p>New preprint: <a href="https://arxiv.org/abs/2603.27748" target="_blank" rel="noopener">an infinite family of non-extendable MRD codes</a>.</p><span></span></div>
-          <div class="news-row"><time datetime="2026-01">Jan 2026</time><p>A month at the University of South Florida in Tampa, hosted by Giacomo Micheli.</p><span></span></div>
         </div>
         <div class="timeline">
           <p class="eyebrow list-label">Academic journey</p>
